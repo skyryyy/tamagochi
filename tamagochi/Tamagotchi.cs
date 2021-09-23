@@ -11,7 +11,7 @@ namespace tamagochi
 
         private List<string> words = new List<string>();
 
-        private bool isAlive;
+        private bool isAlive = true;
 
         private Random generator = new Random();
 
@@ -24,17 +24,28 @@ namespace tamagochi
 
         public void Hi()
         {
+            if (words.Count == 0)
+            {
+                Console.WriteLine($"{name} is LITERALLY analphabetic, please teach him a single word before asking him to talk moron.");
+            }
+            else
+            {
+                int i = generator.Next(words.Count);
+                Console.WriteLine(words[i]);
+            }
 
         }
 
         public void Teach(string word)
         {
-
+            words.Add(word);
+            ReduceBoredom();
         }
 
         public void Tick()
         {
-
+            Hunger++;
+            Boredom++;
         }
 
         public void PrintStats()
@@ -53,12 +64,12 @@ namespace tamagochi
 
         public bool GetAlive()
         {
-            return true;
+            return isAlive;
         }
 
         private void ReduceBoredom()
         {
-
+            Boredom--;
         }
     }
 }
