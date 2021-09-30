@@ -5,9 +5,9 @@ namespace tamagochi
 {
     public class Tamagotchi
     {
-        private int Hunger;
+        private int Hunger = 2;
 
-        private int Boredom;
+        private int Boredom = 2;
 
         private List<string> words = new List<string>();
 
@@ -15,23 +15,35 @@ namespace tamagochi
 
         private Random generator = new Random();
 
-        public string name;
+        public string name = Console.ReadLine();
 
         public void Feed()
         {
             Hunger--;
+
+            if (Hunger >= 10 || Boredom >= 10)
+            {
+                isAlive = false;
+            }
         }
 
         public void Hi()
         {
             if (words.Count == 0)
             {
-                Console.WriteLine($"{name} is LITERALLY analphabetic, please teach him a single word before asking him to talk moron.");
+                Console.WriteLine($"{name} is LITERALLY analphabetic, please teach him a single word before asking him to talk, moron.");
             }
             else
             {
                 int i = generator.Next(words.Count);
                 Console.WriteLine(words[i]);
+            }
+
+            Tick();
+
+            if (Hunger >= 10 || Boredom >= 10)
+            {
+                isAlive = false;
             }
 
         }
@@ -40,12 +52,24 @@ namespace tamagochi
         {
             words.Add(word);
             ReduceBoredom();
+
+            Tick();
+
+            if (Hunger >= 10 || Boredom >= 10)
+            {
+                isAlive = false;
+            }
         }
 
         public void Tick()
         {
             Hunger++;
             Boredom++;
+
+            if (Hunger >= 10 || Boredom >= 10)
+            {
+                isAlive = false;
+            }
         }
 
         public void PrintStats()
@@ -60,6 +84,8 @@ namespace tamagochi
             {
                 Console.WriteLine($"The current stats of your beloved pet is dead, you killed {name}, even though they were so young");
             }
+
+            Tick();
         }
 
         public bool GetAlive()
