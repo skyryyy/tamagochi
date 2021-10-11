@@ -15,7 +15,7 @@ namespace tamagochi
 
         private Random generator = new Random();
 
-        public string name = Console.ReadLine();
+        public string name = "";
 
         public void Feed()
         {
