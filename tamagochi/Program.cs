@@ -21,7 +21,10 @@ namespace tamagochi
             while (tama.GetAlive())
             {
                 Console.WriteLine($"What do you want {name} to do?");
-                Console.WriteLine("Would you like to feed them, press 1. Would you like them to talk, press 2. Would you like to teach them a word, press 3. Would you like to see they stats, press 4.");
+                Console.WriteLine("Would you like to feed them, press 1.");
+                Console.WriteLine("Would you like them to talk, press 2.");
+                Console.WriteLine("Would you like to teach them a word, press 3 then enter and then type the word.");
+                Console.WriteLine("Would you like to see they stats, press 4.");
                 string answer = "";
                 while (answer != "1" && answer != "2" && answer != "3" && answer != "4")
                 {
