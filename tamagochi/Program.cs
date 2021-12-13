@@ -10,17 +10,16 @@ namespace tamagochi
 
             Console.WriteLine("Welcome to Tamabruh (Trademarked by Doofensmith Evil Inc.).");
             Tamagotchi tama = new Tamagotchi();
-            string name = "";
-            while (name == "")
+            while (tama.name == "")
             {
                 Console.WriteLine("What would you like to name your new pet?");
-                name = Console.ReadLine().Trim();
+                tama.name = Console.ReadLine().Trim();
             }
-            Console.WriteLine($"Bruh, so they be named {name}.");
+            Console.WriteLine($"Bruh, so they be named {tama.name}.");
 
             while (tama.GetAlive())
             {
-                Console.WriteLine($"What do you want {name} to do?");
+                Console.WriteLine($"What do you want {tama.name} to do?");
                 Console.WriteLine("Would you like to feed them, press 1.");
                 Console.WriteLine("Would you like them to talk, press 2.");
                 Console.WriteLine("Would you like to teach them a word, press 3 then enter and then type the word.");

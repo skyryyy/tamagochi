@@ -17,6 +17,7 @@ namespace tamagochi
 
         public string name = "";
 
+
         public void Feed()
         {
             Hunger--;
